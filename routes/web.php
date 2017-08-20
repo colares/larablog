@@ -15,10 +15,9 @@ Route::get('/', function () {
     // return view('welcome')->with('name', 'World');
 
     // rule of thumb: essa aqui é melhor
-    
-    return view('welcome', [
-        'name' => 'World'
-    ]);
+    $tasks = DB::table('tasks')->get();
+    // return $tasks; // retorna um json
+    return view('welcome', compact('tasks'));
 });
 
 
