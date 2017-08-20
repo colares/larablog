@@ -20,6 +20,11 @@ Route::get('/', function () {
     return view('welcome', compact('tasks'));
 });
 
+Route::get('/tasks/{task}', function ($id) {
+    $task = DB::table('tasks')->find($id);
+    dd($task);
+    return view('welcome', compact('tasks'));
+});
 
 Route::get('about', function() {
     return view('about');
