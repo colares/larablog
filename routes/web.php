@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/tasks', function () {
     // return view('welcome')->with('name', 'World');
 
     // rule of thumb: essa aqui é melhor
     $tasks = DB::table('tasks')->get();
     // return $tasks; // retorna um json
-    return view('welcome', compact('tasks'));
+    return view('tasks.index', compact('tasks'));
 });
 
 Route::get('/tasks/{task}', function ($id) {
