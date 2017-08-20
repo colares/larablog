@@ -10,7 +10,7 @@
     <h1>Hello</h1>
     <ul>
         @foreach ($tasks as $task) 
-            <li>{{ $task->body }}</li>
+            <li>{{ $task.body }}</li>
         @endforeach
     </ul>
 </body>
