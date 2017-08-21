@@ -1,5 +1,6 @@
 <?php
 
+use App\Task;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,18 +13,13 @@
 */
 
 Route::get('/tasks', function () {
-    // return view('welcome')->with('name', 'World');
-
-    // rule of thumb: essa aqui é melhor
-    $tasks = DB::table('tasks')->get();
-    // return $tasks; // retorna um json
+    $tasks = Task::all();
     return view('tasks.index', compact('tasks'));
+    // return $tasks; // retorna um json
 });
 
 Route::get('/tasks/{task}', function ($id) {
-    $task = DB::table('tasks')->find($id);
-    // return view('tasks/show', compact('task'));
-    // ou
+    $task = Task::find($id);
     return view('tasks.show', compact('task'));
 });
 
