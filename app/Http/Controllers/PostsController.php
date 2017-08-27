@@ -20,6 +20,15 @@ class PostsController extends Controller
     }
 
     public function store() {
-        dd(request()->all());
+//        dd(request()->all());
+//        dd(request('title'));
+//        dd(request(['title', 'body']));
+
+        $post = new Post;
+        $post->title = request('title');
+        $post->body = request('body');
+        $post->save();
+
+        return redirect('/');
     }
 }
