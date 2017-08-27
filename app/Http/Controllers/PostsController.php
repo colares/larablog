@@ -24,11 +24,18 @@ class PostsController extends Controller
 //        dd(request('title'));
 //        dd(request(['title', 'body']));
 
-        $post = new Post;
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->save();
+//        $post = new Post;
+//        $post->title = request('title');
+//        $post->body = request('body');
+//        $post->save();
+//            ou
 
+//        só funcionará com fillable or guarded no Model
+//        e é uma boa prática sempre ter no model
+//        Post::create(request()->all());
+
+        // é uma boa prática sempre descrever os parâmetros
+        Post::create(request(['title', 'body']));
         return redirect('/');
     }
 }

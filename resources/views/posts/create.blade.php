@@ -10,9 +10,9 @@
             <small id="titleHelp" class="form-text text-muted">Seja objetivo</small>
         </div>
         <div class="form-group">
-            <label for="body">Boby</label>
+            <label for="body">Body</label>
             <textarea class="form-control" id="body" rows="3" name="body"></textarea>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
