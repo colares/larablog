@@ -23,4 +23,21 @@
         </ul>
     </div>
 
+    <hr>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="/posts/{{ $post->id }}/comments">
+                <div class="form-group">
+                    <textarea name="body" id="" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add comment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
 @endsection
