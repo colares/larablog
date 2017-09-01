@@ -28,6 +28,7 @@
     <div class="card">
         <div class="card-body">
             <form method="POST" action="/posts/{{ $post->id }}/comments">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <textarea name="body" id="" class="form-control"></textarea>
                 </div>
