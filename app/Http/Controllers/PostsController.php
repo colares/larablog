@@ -50,7 +50,22 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        Post::create(request(['title', 'body']));
+
+        // Antes era assim:
+        // Post::create(request(['title', 'body', ]));
+        // Agora precisamos informar o usuário logado como criador do post
+        // Opção 1:
+        Post::create([
+            'title' => request('title'),
+            'body' => request('body'),
+            //'user_id' => auth()->user()->id
+            // Que é a mesma coisa que:
+            'user_id' => auth()->id()
+            // E já que adicionou user_id, tem que adicionar o fillable
+            //  protected $fillable = ['title', 'body', 'user_id'];
+        ]);
+
+
         return redirect('/');
     }
 }
