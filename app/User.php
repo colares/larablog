@@ -32,4 +32,15 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function publish(Post $post)
+    {
+        // Save, então eu estou salvando um objeto já criado
+        // E o user id (this) é setado automaticamente, porque a relação
+        // está descrita aqui (em User)
+        $this->posts()->save($post);
+
+        // Se eu escolhesse create, então deveria informar os dados
+        // $this->posts()->create([]);
+    }
+
 }

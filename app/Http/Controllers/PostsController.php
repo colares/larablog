@@ -55,16 +55,22 @@ class PostsController extends Controller
         // Post::create(request(['title', 'body', ]));
         // Agora precisamos informar o usuário logado como criador do post
         // Opção 1:
-        Post::create([
-            'title' => request('title'),
-            'body' => request('body'),
-            //'user_id' => auth()->user()->id
-            // Que é a mesma coisa que:
-            'user_id' => auth()->id()
-            // E já que adicionou user_id, tem que adicionar o fillable
-            //  protected $fillable = ['title', 'body', 'user_id'];
-        ]);
+//        Post::create([
+//            'title' => request('title'),
+//            'body' => request('body'),
+//            //'user_id' => auth()->user()->id
+//            // Que é a mesma coisa que:
+//            'user_id' => auth()->id()
+//            // E já que adicionou user_id, tem que adicionar o fillable
+//            //  protected $fillable = ['title', 'body', 'user_id'];
+//        ]);
 
+        // Do ponto de vista do cliente, ele pode pedir
+        // "O usuário publica um novo artigo"
+        // O código pode refletir isso:
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );
 
         return redirect('/');
     }
