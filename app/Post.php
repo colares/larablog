@@ -34,4 +34,16 @@ class Post extends Model
     public function addComment($body) {
         $this->comments()->create(compact('body'));
     }
+
+    public static function archives() {
+//        static or self?
+//            https://stackoverflow.com/questions/5197300/new-self-vs-new-static#5197655
+//            self refers to the same class in which the new keyword is actually written.
+//            static, in PHP 5.3's late static bindings, refers to whatever class in the hierarchy you called the method on.
+        return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+            ->groupBy('year', 'month')
+            ->orderByRaw('year, month DESC')
+            ->get()
+            ->toArray();
+    }
 }
