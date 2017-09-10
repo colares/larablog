@@ -7,8 +7,6 @@ use App\Post;
 
 class PostsController extends Controller
 {
-
-
     /**
      * PostsController constructor.
      */
@@ -27,6 +25,7 @@ class PostsController extends Controller
     }
 
     public function create() {
+        // tentar acessa isso deslogado. acho qque o middleware auth tenta acessar o endpoint com o name login
         return view('posts.create');
     }
 

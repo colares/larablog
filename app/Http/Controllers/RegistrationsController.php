@@ -10,7 +10,7 @@ class RegistrationsController extends Controller
 {
     public function create()
     {
-        return view('sessions.create');
+        return view('registrations.create');
     }
 
     public function store()
@@ -23,7 +23,12 @@ class RegistrationsController extends Controller
         ]);
 
         // create and save
-          $user = User::create(request(['name', 'email', 'password']));
+//          $user = User::create(request(['name', 'email', 'password']));
+          $user = User::create([
+              'name' => request('name'),
+              'email' => request('email'),
+              'password' => bcrypt(request('password'))
+          ]);
 
         // sign them in
         // Auth::login($user);
