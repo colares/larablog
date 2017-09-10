@@ -21,6 +21,7 @@ class PostsController extends Controller
 
         $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
             ->groupBy('year', 'month')
+            ->orderByRaw('year, month DESC')
             ->get()
             ->toArray();
 

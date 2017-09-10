@@ -6,7 +6,7 @@
     <h4>Archives</h4>
     <ol class="list-unstyled">
         @foreach($archives as $month)
-            <li><a href="">{{ $month['month'] }} {{ $month['year'] }}</a></li>
+            <li><a href="">{{ $month['month'] . ' ' . $month['year'] }}</a></li>
         @endforeach
     </ol>
 </div>
