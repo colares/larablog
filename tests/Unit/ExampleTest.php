@@ -15,6 +15,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+//        $this->assertTrue(true);
+        // Given eu tenho dois registros no banco de dados que são posts
+        // e que cada um foi submetido com um mês de distância
+        // When eu consulto os arquivos
+        // Then a resposta deverá vir no formato correto
     }
 }

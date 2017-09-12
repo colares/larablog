@@ -16,8 +16,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        $this->get('/')->assertSee('The Bootstrap Blog');
 
-        $response->assertStatus(200);
     }
 }
