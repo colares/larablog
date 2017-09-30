@@ -18,10 +18,11 @@ class PostsController extends Controller
     }
 
     public function index(Posts $posts) {
-        dd($posts);
-        $posts = Post::latest()
-            ->filter(request(['month', 'year']))
-            ->get();
+//        dd($posts);
+        $posts = $posts->all(); // repositório com o mesmo nome de outra variável. não gostei
+//        $posts = Post::latest()
+//            ->filter(request(['month', 'year']))
+//            ->get();
 
 
         // a mesma coisa
