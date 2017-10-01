@@ -37,7 +37,7 @@ class RegistrationsController extends Controller
         auth()->login($user);
 
 
-        \Mail::to($user)->send(new Welcome);
+        \Mail::to($user)->send(new Welcome($user));
 
         // redirect to the home page
         // Para ->home() funcionar, você precisa dizer nomear a rota que deseja chamar de home

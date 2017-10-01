@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -11,15 +12,17 @@ class Welcome extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
+
     /**
-     * Create a new message instance.
-     *
-     * @return void
+     * Welcome constructor.
+     * @param $user
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
     }
+
 
     /**
      * Build the message.
@@ -28,6 +31,10 @@ class Welcome extends Mailable
      */
     public function build()
     {
-         return $this->view('emails.welcome');
+        //return view('emails.welcome')->with('user', $this->user);
+        //return view('emails.welcome', compact(...));
+
+        // como $user está público, view pega automaticamente
+        return $this->view('emails.welcome');
     }
 }

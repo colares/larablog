@@ -2,6 +2,6 @@
 <html>
 <head></head>
 <body>
-<h1>Welcome, world!</h1>
+<h1>Welcome, {{ $user->name }}!</h1>
 </body>
 </html>
