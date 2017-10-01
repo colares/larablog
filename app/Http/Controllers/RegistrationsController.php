@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Welcome;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,9 @@ class RegistrationsController extends Controller
         // Auth::login($user);
         // usando uma helper function, a gente não precisa colocar mais um use na classe:
         auth()->login($user);
+
+
+        \Mail::to($user)->send(new Welcome);
 
         // redirect to the home page
         // Para ->home() funcionar, você precisa dizer nomear a rota que deseja chamar de home
