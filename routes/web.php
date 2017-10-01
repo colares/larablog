@@ -1,18 +1,6 @@
 <?php
 
-// Como fazer um bind no container:
-// Fazer referência a qualquer caminho de classe
-//App::bind("App\Billing\Stripe", function () {
-//    return new \App\Billing\Stripe(config('services.stripe.secret'));
-//});
-//
-//$stripe = resolve('App\Billing\Stripe');
-//$stripe2 = resolve('App\Billing\Stripe');
-//$stripe3 = resolve('App\Billing\Stripe');
-//
-//dump($stripe);
-//dump($stripe2);
-//dd($stripe3);
+dd(resolve('App\Billing\Stripe'));
 
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
