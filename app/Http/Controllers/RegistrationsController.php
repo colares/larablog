@@ -17,6 +17,10 @@ class RegistrationsController extends Controller
 
     public function store(RegistrationRequest $request)
     {
+        $request->persist();
+
+        session()->flash('message', 'Thanks so much for signing up!');
+
         // redirect to the home page
         // Para ->home() funcionar, você precisa dizer nomear a rota que deseja chamar de home
         return redirect()->home();
