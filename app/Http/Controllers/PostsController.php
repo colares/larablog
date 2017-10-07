@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Posts;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Post;
@@ -17,12 +18,14 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index(Posts $posts) {
+//    public function index(Posts $posts) {
 //        dd($posts);
-        $posts = $posts->all(); // repositório com o mesmo nome de outra variável. não gostei
-//        $posts = Post::latest()
-//            ->filter(request(['month', 'year']))
-//            ->get();
+//        $posts = $posts->all(); // repositório com o mesmo nome de outra variável. não gostei
+
+    public function index() {
+        $posts = Post::latest()
+            ->filter(request(['month', 'year']))
+            ->get();
 
 
         // a mesma coisa
