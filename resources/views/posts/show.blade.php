@@ -3,6 +3,12 @@
 @section('content')
     <h1>{{ $post->title }}</h1>
 
+    @if (count($post->tags))
+        @foreach($post->tags as $tag)
+            <span class="badge badge-light"><a href="/posts/tags/{{$tag->name}}">{{$tag->name}}</a></span>
+        @endforeach
+    @endif
+
     {{--http://carbon.nesbot.com/docs/#api-formatting--}}
     <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }}</p>
 
